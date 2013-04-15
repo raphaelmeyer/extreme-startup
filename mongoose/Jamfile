@@ -1,0 +1,14 @@
+
+project mongoose
+  : requirements
+    <library>/extreme-startup//pthread
+    <library>/extreme-startup//dl
+  : usage-requirements
+    <include>include
+  ;
+
+lib mongoose
+  : mongoose.c
+    server.cc
+  ;
+

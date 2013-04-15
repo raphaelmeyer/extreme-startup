@@ -1,0 +1,11 @@
+
+project googlemock
+  : source-location source
+  : requirements
+    <include>include
+  : usage-requirements
+    <include>include
+  ;
+
+lib gmock : [ glob *.cc ] ;
+

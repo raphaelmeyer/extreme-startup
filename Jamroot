@@ -1,0 +1,27 @@
+
+import testing ;
+
+lib pthread : : <name>pthread ;
+lib dl : : <name>dl ;
+
+project extreme-startup
+  : build-dir build
+  ;
+
+build-project googlemock ;
+build-project mongoose ;
+build-project handler ;
+
+
+unit-test server-test
+  : [ glob test/*.cc ]
+  : <library>/extreme-startup//handler
+    <library>/extreme-startup//googlemock
+    <library>/extreme-startup//pthread
+  ;
+
+exe server
+  : main.cc
+  : <library>/extreme-startup//handler
+    <library>/extreme-startup//mongoose
+  ;

@@ -1,0 +1,10 @@
+
+project handler
+  : usage-requirements
+    <include>.
+  ;
+
+lib handler
+  : [ glob-tree *.cc ]
+  ;
+
