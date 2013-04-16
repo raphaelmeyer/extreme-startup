@@ -4,6 +4,8 @@ import testing ;
 lib pthread : : <name>pthread ;
 lib dl : : <name>dl ;
 
+alias all : server-test server ;
+
 project extreme-startup
   : build-dir build
   ;
@@ -11,7 +13,6 @@ project extreme-startup
 build-project googlemock ;
 build-project mongoose ;
 build-project handler ;
-
 
 unit-test server-test
   : [ glob test/*.cc ]
@@ -25,3 +26,4 @@ exe server
   : <library>/extreme-startup//handler
     <library>/extreme-startup//mongoose
   ;
+
