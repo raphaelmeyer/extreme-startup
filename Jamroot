@@ -22,7 +22,7 @@ unit-test server-test
   ;
 
 exe server
-  : main.cc
+  : main/main.cc
   : <library>/extreme-startup//handler
     <library>/extreme-startup//mongoose
   ;

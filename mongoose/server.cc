@@ -11,7 +11,7 @@ static int begin_request_handler(struct mg_connection *conn) {
 
     mg_printf(conn, "HTTP/1.1 200 OK\r\n"
         "Content-Type: text/plain\r\n"
-        "Content-Length: %d\r\n" // Always set Content-Length
+        "Content-Length: %lu\r\n" // Always set Content-Length
         "\r\n"
         "%s", response.size(), response.c_str());
     return 1;
@@ -27,7 +27,7 @@ Server::Server(std::string port, std::function<std::string(std::string)> const &
 
 void Server::start() {
   mg_context * context = nullptr;
-  mg_callbacks callbacks { };
+  mg_callbacks callbacks;
 
   // List of options. Last element must be NULL.
   const char *options[] = { "listening_ports", m_Port.c_str(), 0 };

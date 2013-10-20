@@ -3,8 +3,6 @@ include(../common.pri)
 TARGET = test
 TEMPLATE = app
 
-INCLUDEPATH += .
-
 SOURCES += \
   test-handler.cc
 

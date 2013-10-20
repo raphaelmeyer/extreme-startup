@@ -2,6 +2,7 @@ include(../common.pri)
 
 TARGET = handler
 TEMPLATE = lib
+CONFIG += staticlib
 
 INCLUDEPATH += include
 

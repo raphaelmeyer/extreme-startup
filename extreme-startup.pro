@@ -1,11 +1,11 @@
 TEMPLATE = subdirs
 
 SUBDIRS = \
-    server \
     test \
     handler \
     googlemock \
-    mongoose
+    mongoose \
+    main
 
 test.depends += handler googlemock
 server.depends += handler mongoose

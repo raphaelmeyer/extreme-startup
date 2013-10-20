@@ -1,7 +1,9 @@
 
 project handler
+  : requirements
+    <include>include
   : usage-requirements
-    <include>.
+    <include>include
   ;
 
 lib handler
