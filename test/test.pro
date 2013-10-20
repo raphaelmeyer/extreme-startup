@@ -2,6 +2,7 @@ include(../common.pri)
 
 TARGET = test
 TEMPLATE = app
+CONFIG += console
 
 SOURCES += \
   test-handler.cc

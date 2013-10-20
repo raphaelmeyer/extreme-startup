@@ -1,3 +1,6 @@
+# Workaround for MSVC 2012
+win32-msvc2012: DEFINES += _VARIADIC_MAX=10
+
 include(../common.pri)
 
 TARGET = googlemock

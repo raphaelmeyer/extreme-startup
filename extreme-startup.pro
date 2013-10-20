@@ -8,5 +8,5 @@ SUBDIRS = \
     main
 
 test.depends += handler googlemock
-server.depends += handler mongoose
+main.depends += handler mongoose
 

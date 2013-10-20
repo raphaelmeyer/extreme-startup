@@ -2,8 +2,7 @@ include(../common.pri)
 
 TARGET = server
 TEMPLATE = app
-
-INCLUDEPATH += include
+CONFIG += console
 
 SOURCES += \
   main.cc \
