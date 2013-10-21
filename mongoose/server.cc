@@ -27,7 +27,8 @@ Server::Server(std::string port, std::function<std::string(std::string)> const &
 
 void Server::start() {
   mg_context * context = nullptr;
-  mg_callbacks callbacks;
+  mg_callbacks callbacks = { nullptr, nullptr, nullptr, nullptr, nullptr,
+                             nullptr, nullptr, nullptr, nullptr, nullptr };
 
   // List of options. Last element must be NULL.
   const char *options[] = { "listening_ports", m_Port.c_str(), 0 };
