@@ -1,10 +1,7 @@
 # Ignore build directory
-build
+/build/
 
-# Eclipse settings directory
-.settings
-
-#
-*.pro.user
+# editor etc
+*.swp
 
 

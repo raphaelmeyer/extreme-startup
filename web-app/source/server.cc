@@ -1,8 +1,9 @@
-#include "include/server.h"
+#include "server.h"
 #include "mongoose.h"
 
 #include <iostream>
 
+/*
 static int begin_request_handler(struct mg_connection *conn) {
   mg_request_info const * request_info = mg_get_request_info(conn);
   Server * server = static_cast<Server *>(request_info->user_data);
@@ -19,6 +20,10 @@ static int begin_request_handler(struct mg_connection *conn) {
 
   return 0;
 }
+*/
+
+static void event_handler(mg_connection * nc, int event, void * event_data) {
+}
 
 Server::Server(std::string port, std::function<std::string(std::string)> const & callback) :
     m_Port(port),
@@ -26,27 +31,24 @@ Server::Server(std::string port, std::function<std::string(std::string)> const &
 }
 
 void Server::start() {
-  mg_context * context = nullptr;
-  mg_callbacks callbacks = { nullptr, nullptr, nullptr, nullptr, nullptr,
-                             nullptr, nullptr, nullptr, nullptr, nullptr };
 
-  // List of options. Last element must be NULL.
-  const char *options[] = { "listening_ports", m_Port.c_str(), 0 };
+  struct mg_mgr mgr{};
+  struct mg_bind_opts bind_options{};
 
-  // Prepare callbacks structure. We have only one callback, the rest are NULL.
-  callbacks.begin_request = begin_request_handler;
+  mg_mgr_init(&mgr, nullptr);
+  auto connection = mg_bind_opt(&mgr, m_Port.c_str(), event_handler, bind_options);
+  if(not connection) {
+    throw std::exception();
+  }
 
-  // Start the web server.
-  context = mg_start(&callbacks, this, options);
+  mg_set_protocol_http_websocket(connection);
 
   std::cout << "Listening on port " << m_Port << ".\n";
-  std::cout << "Press enter to end." << std::endl;
 
-  // Wait until user hits "enter". Server is running in separate thread.
-  getchar();
-
-  // Stop the server.
-  mg_stop(context);
+  for(;;) {
+    mg_mgr_poll(&mgr, 1000);
+  }
+  mg_mgr_free(&mgr);
 }
 
 std::string Server::forward(std::string request) {
