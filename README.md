@@ -5,21 +5,25 @@ Robert Chatley and Matt Wynne.
 
 Implemented in C++11 and based on mongoose.
 
-## build
+## build instructions
+
+### get repository
 
     git clone https://github.com/raphaelmeyer/extreme-startup.git
+    cd extreme-startup
+
     git submodule init
     git submodule update
 
-    cd extreme-startup
+### build
+
     mkdir -p build
     cd build
     cmake ..
     cd ..
     cmake --build build --target all
 
-
-## run
+### run
 
     ./build/web-app/server-exe
 
