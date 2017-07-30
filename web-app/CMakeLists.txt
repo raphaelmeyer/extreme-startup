@@ -1,3 +1,5 @@
+find_package(Threads)
+
 add_library(web-app
   source/handler.cc
   source/server.cc
@@ -9,6 +11,7 @@ target_include_directories(web-app
 
 target_link_libraries(web-app
   PRIVATE mongoose
+  PRIVATE ${CMAKE_THREAD_LIBS_INIT}
 )
 
 add_executable(server-exe

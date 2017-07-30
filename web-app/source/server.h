@@ -1,19 +1,24 @@
-#ifndef SERVER_H_
-#define SERVER_H_
+#pragma once
 
 #include <functional>
 #include <string>
+#include <thread>
 
 class Server {
 public:
-  Server(std::string port, std::function<std::string(std::string)> const & callback);
+  using HandlerFunc = std::function<std::string(std::string const &)>;
+
+  Server(std::string _port, HandlerFunc const & _handler);
 
   void start();
-  std::string forward(std::string request);
+  void stop();
+
+  std::string handle(std::string const & request);
 
 private:
-  std::string m_Port;
-  std::function<std::string(std::string)> m_Handle;
+  std::string port;
+  HandlerFunc handler;
+  bool running;
+  std::thread server_thread;
 };
 
-#endif // SERVER_H_

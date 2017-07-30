@@ -4,11 +4,13 @@
 
 namespace {
 
-TEST(Handler, Warmup) {
-  Handler handler;
-  std::string request = "q=219a0090:%20what%20is%20your%20name";
+TEST(A_Handler, should_return_its_name_when_asked_for) {
+  Handler testee;
+
+  std::string const query = "what is your name";
   std::string expected = "Name";
-  EXPECT_EQ(expected, handler.handle(request));
+
+  EXPECT_EQ(expected, testee.handle(query));
 }
 
 }

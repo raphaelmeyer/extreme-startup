@@ -1,12 +1,10 @@
-#ifndef HANDLER_H_
-#define HANDLER_H_
+#pragma once
 
 #include <string>
 
 class Handler {
 public:
   Handler();
-  std::string handle(std::string request);
+  std::string handle(std::string const & query);
 };
 
-#endif // HANDLER_H_
