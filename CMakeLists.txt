@@ -8,9 +8,11 @@ include(googletest.cmake)
 include(mongoose.cmake)
 
 add_subdirectory(web-app)
-add_subdirectory(test)
+add_subdirectory(web-app-test)
+
+add_subdirectory(main)
 
 add_custom_target(run-tests ALL
-  DEPENDS run-handler-test
+  DEPENDS run-web-app-test
 )
 
