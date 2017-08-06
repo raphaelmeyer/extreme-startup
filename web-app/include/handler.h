@@ -4,5 +4,5 @@
 
 class Handler {
 public:
-  std::string handle(std::string const &query);
+  std::string handle(std::string const & query);
 };

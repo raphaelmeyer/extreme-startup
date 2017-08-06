@@ -10,7 +10,7 @@ int main() {
   Server server("3001", callback);
   server.start();
 
-  while (not std::cin.eof()) {
+  while(not std::cin.eof()) {
     char _;
     std::cin >> _;
   }
