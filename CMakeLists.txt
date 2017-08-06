@@ -16,3 +16,10 @@ add_custom_target(run-tests ALL
   DEPENDS run-web-app-test
 )
 
+add_custom_target(format
+  COMMAND
+    find main web-app web-app-test -name "*.h" -or -name "*.cc" | xargs clang-format -i -style=file
+  WORKING_DIRECTORY
+    ${PROJECT_SOURCE_DIR}
+)
+
