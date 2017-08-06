@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 project(extreme-startup)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-add_compile_options("-Wall")
+add_compile_options("-Wall" "-Werror")
 
 include(googletest.cmake)
 include(mongoose.cmake)

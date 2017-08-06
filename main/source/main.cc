@@ -1,5 +1,5 @@
-#include "server.h"
 #include "handler.h"
+#include "server.h"
 
 #include <iostream>
 
@@ -19,4 +19,3 @@ int main() {
 
   return 0;
 }
-
