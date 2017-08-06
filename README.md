@@ -25,4 +25,5 @@ A skeleton for extreme startup in C++11 and based on mongoose.
     ./build/main/server-exe
 
 
-Look into web-app and web-app-test to get started.
+To get started have a look at `web-app` and `web-app-test`.
+
