@@ -39,5 +39,5 @@ script:
   - mkdir build
   - cd build
   - cmake -G Ninja ..
-  - ninja
+  - cmake --build . --target all
 
