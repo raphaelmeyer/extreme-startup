@@ -31,7 +31,7 @@ void Server::start() {
     mg_mgr manager{};
     mg_mgr_init(&manager, nullptr);
     auto connection = mg_bind(&manager, port.c_str(), event_handler);
-    if(not connection) {
+    if(! connection) {
       throw std::exception();
     }
     connection->user_data = static_cast<void *>(this);
